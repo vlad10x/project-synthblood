@@ -49,12 +49,13 @@ const HeroSection: React.FC = () => {
           onMouseEnter={() => setShowMagnifier(true)}
           onMouseLeave={() => setShowMagnifier(false)}
         >
-          {/* Placeholder for hazmat-lab.png */}
-          <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-            <div className="text-center opacity-50">
-              <div className="text-4xl mb-2">🧪</div>
-              <div className="font-mono text-sm">hazmat-lab.png</div>
-            </div>
+          {/* Actual hazmat-lab.png image */}
+          <div className="w-full h-full">
+            <img 
+              src="/assets/hazmat-lab.png" 
+              alt="Laboratory with hazmat suits" 
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* Forensic Analysis Overlays */}

@@ -45,15 +45,13 @@ const ArchiveIntro: React.FC = () => {
           {/* Right Column - ID Badge */}
           <div className="flex justify-center">
             <div className="relative cursor-crosshair group">
-              <div className="w-48 h-64 bg-gradient-to-b from-gray-700 to-gray-800 border border-cream/40 p-4 transform group-hover:scale-105 transition-transform duration-300">
-                {/* Placeholder for idcard.png */}
-                <div className="w-full h-full bg-gradient-to-br from-gray-600 to-gray-800 flex flex-col items-center justify-center">
-                  <div className="text-4xl mb-4">🆔</div>
-                  <div className="font-mono text-xs text-center opacity-60">
-                    idcard.png<br/>
-                    ID: 6A92-THX
-                  </div>
-                </div>
+              <div className="w-48 h-64 border border-cream/40 p-1 transform group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                {/* Actual idcard.png image */}
+                <img 
+                  src="/assets/idcard.png" 
+                  alt="Security ID Badge" 
+                  className="w-full h-full object-cover"
+                />
                 
                 {/* Glitch Effect on Hover */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-30 bg-static-noise transition-opacity duration-300"></div>

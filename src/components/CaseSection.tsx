@@ -83,12 +83,23 @@ const CaseCard: React.FC<{ caseFile: CaseFile }> = ({ caseFile }) => {
         </div>
       </div>
 
-      {/* Image Placeholder */}
-      <div className="w-full h-48 bg-gradient-to-br from-gray-700 to-gray-800 border border-cream/20 mb-6 flex items-center justify-center group-hover:border-neon-green/40 transition-colors duration-300">
-        <div className="text-center opacity-50">
-          <div className="text-3xl mb-2">📸</div>
-          <div className="font-mono text-xs">{caseFile.imagePlaceholder}</div>
-        </div>
+      {/* Image */}
+      <div className="w-full h-48 border border-cream/20 mb-6 flex items-center justify-center group-hover:border-neon-green/40 transition-colors duration-300 overflow-hidden">
+        <img 
+          src={`/assets/${caseFile.imagePlaceholder}`} 
+          alt={caseFile.title} 
+          className="w-full h-full object-cover"
+          onError={(e) => {
+            // Fallback to placeholder if image fails to load
+            const target = e.target as HTMLImageElement;
+            target.style.display = 'none';
+            target.parentElement!.classList.add('bg-gradient-to-br', 'from-gray-700', 'to-gray-800');
+            const placeholder = document.createElement('div');
+            placeholder.className = 'text-center opacity-50';
+            placeholder.innerHTML = `<div class="text-3xl mb-2">📸</div><div class="font-mono text-xs">${caseFile.imagePlaceholder}</div>`;
+            target.parentElement!.appendChild(placeholder);
+          }}
+        />
       </div>
 
       {/* Summary */}
