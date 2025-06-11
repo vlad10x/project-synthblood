@@ -12,10 +12,10 @@ const Footer: React.FC = () => {
   }, []);
 
   const filmstripImages = [
-    'film1.png',
-    'film2.png',
-    'film3.png',
-    'film4.png'
+    '1111.jpg',
+    '2222.jpg', 
+    '33333.jpg',
+    '44444.jpg'
   ];
 
   return (
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
             <h3 className="text-sm font-mono text-neon-green mb-4 tracking-wider">
               RECOVERED FOOTAGE
             </h3>
-            <div className="relative overflow-hidden h-24 bg-black">
+            <div className="relative overflow-hidden h-32 bg-black border border-cream/20">
               {/* Scanner Light Animation */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="w-32 h-full bg-gradient-to-r from-transparent via-neon-green/10 to-transparent animate-scanner-sweep"></div>
@@ -59,13 +59,28 @@ const Footer: React.FC = () => {
                 {filmstripImages.map((image, index) => (
                   <div
                     key={`set1-${index}`}
-                    className="flex-shrink-0 w-20 h-full bg-black flex items-center justify-center cursor-crosshair group animate-film-flicker"
+                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
                     style={{ animationDelay: `${index * 0.5}s` }}
                   >
-                    <div className="text-center opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                      <div className="text-2xl mb-1">📽️</div>
-                      <div className="font-mono text-xs">{image}</div>
-                    </div>
+                    <img 
+                      src={`/assets/${image}`} 
+                      alt={`Recovered footage ${index + 1}`}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
+                        placeholder.innerHTML = `
+                          <div>
+                            <div class="text-2xl mb-1">📽️</div>
+                            <div class="font-mono text-xs">${image}</div>
+                          </div>
+                        `;
+                        target.parentElement!.appendChild(placeholder);
+                      }}
+                    />
                   </div>
                 ))}
                 
@@ -73,13 +88,28 @@ const Footer: React.FC = () => {
                 {filmstripImages.map((image, index) => (
                   <div
                     key={`set2-${index}`}
-                    className="flex-shrink-0 w-20 h-full bg-black flex items-center justify-center cursor-crosshair group animate-film-flicker"
+                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
                     style={{ animationDelay: `${(index + 4) * 0.5}s` }}
                   >
-                    <div className="text-center opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                      <div className="text-2xl mb-1">📽️</div>
-                      <div className="font-mono text-xs">{image}</div>
-                    </div>
+                    <img 
+                      src={`/assets/${image}`} 
+                      alt={`Recovered footage ${index + 1}`}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
+                        placeholder.innerHTML = `
+                          <div>
+                            <div class="text-2xl mb-1">📽️</div>
+                            <div class="font-mono text-xs">${image}</div>
+                          </div>
+                        `;
+                        target.parentElement!.appendChild(placeholder);
+                      }}
+                    />
                   </div>
                 ))}
                 
@@ -87,13 +117,28 @@ const Footer: React.FC = () => {
                 {filmstripImages.map((image, index) => (
                   <div
                     key={`set3-${index}`}
-                    className="flex-shrink-0 w-20 h-full bg-black flex items-center justify-center cursor-crosshair group animate-film-flicker"
+                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
                     style={{ animationDelay: `${(index + 8) * 0.5}s` }}
                   >
-                    <div className="text-center opacity-60 group-hover:opacity-80 transition-opacity duration-300">
-                      <div className="text-2xl mb-1">📽️</div>
-                      <div className="font-mono text-xs">{image}</div>
-                    </div>
+                    <img 
+                      src={`/assets/${image}`} 
+                      alt={`Recovered footage ${index + 1}`}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const placeholder = document.createElement('div');
+                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
+                        placeholder.innerHTML = `
+                          <div>
+                            <div class="text-2xl mb-1">📽️</div>
+                            <div class="font-mono text-xs">${image}</div>
+                          </div>
+                        `;
+                        target.parentElement!.appendChild(placeholder);
+                      }}
+                    />
                   </div>
                 ))}
               </div>

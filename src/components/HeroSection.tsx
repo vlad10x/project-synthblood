@@ -1,21 +1,7 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { ExternalLink } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
-  const [magnifierPos, setMagnifierPos] = useState({ x: 0, y: 0 });
-  const [showMagnifier, setShowMagnifier] = useState(false);
-  const videoRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (videoRef.current) {
-      const rect = videoRef.current.getBoundingClientRect();
-      setMagnifierPos({
-        x: e.clientX - rect.left,
-        y: e.clientY - rect.top
-      });
-    }
-  };
-
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 md:py-20 relative">
       {/* CRT Flicker Background */}
@@ -52,16 +38,10 @@ const HeroSection: React.FC = () => {
         </nav>
       </div>
 
-      {/* Video Embed with Magnifier */}
+      {/* Clean Video Embed */}
       <div className="relative mb-4 md:mb-8 max-w-4xl w-full">
-        <div
-          ref={videoRef}
-          className="relative w-full border-2 border-cream/30 overflow-hidden cursor-crosshair"
-          onMouseMove={handleMouseMove}
-          onMouseEnter={() => setShowMagnifier(true)}
-          onMouseLeave={() => setShowMagnifier(false)}
-        >
-          {/* Video Embed */}
+        <div className="relative w-full border-2 border-cream/30 overflow-hidden">
+          {/* Video Embed - Clean without effects */}
           <div style={{ left: 0, width: '100%', height: 0, position: 'relative', paddingBottom: '56.25%' }}>
             <figure style={{ left: 0, width: '100%', height: 0, position: 'relative', paddingBottom: '56.25%', marginBlockEnd: 0, marginBlockStart: 0, marginInlineStart: 0, marginInlineEnd: 0 }}>
               <iframe 
@@ -70,34 +50,10 @@ const HeroSection: React.FC = () => {
                 style={{ border: 0, top: 0, left: 0, width: '100%', height: '100%', position: 'absolute', overflow: 'hidden', borderRadius: '5px' }} 
                 allowFullScreen={true}
                 allow="autoplay"
+                title="PROJECT: SYNTHBLOOD - Recovered Footage"
               />
             </figure>
           </div>
-
-          {/* Forensic Analysis Overlays */}
-          <div className="absolute top-4 md:top-20 left-4 md:left-16 w-8 h-8 md:w-16 md:h-16 border-2 border-muted-red rounded-full animate-pulse"></div>
-          <div className="absolute top-8 md:top-32 right-6 md:right-24 w-10 h-6 md:w-20 md:h-12 border-2 border-neon-green animate-pulse"></div>
-          <div className="absolute bottom-6 md:bottom-24 left-8 md:left-32 w-6 h-6 md:w-12 md:h-12 border-2 border-muted-red rounded-full animate-pulse"></div>
-
-          {/* Magnifier */}
-          {showMagnifier && (
-            <div
-              className="absolute w-16 h-16 md:w-32 md:h-32 border-4 border-neon-green rounded-full pointer-events-none z-10 magnifier-lens"
-              style={{
-                left: magnifierPos.x - (window.innerWidth < 768 ? 32 : 64),
-                top: magnifierPos.y - (window.innerWidth < 768 ? 32 : 64),
-                background: `radial-gradient(circle, rgba(57, 255, 20, 0.1) 0%, transparent 70%)`,
-                boxShadow: '0 0 20px rgba(57, 255, 20, 0.5), inset 0 0 20px rgba(57, 255, 20, 0.2)'
-              }}
-            >
-              <div className="w-full h-full rounded-full bg-black/20 backdrop-blur-sm flex items-center justify-center">
-                <div className="text-neon-green font-mono text-xs">SCAN</div>
-              </div>
-            </div>
-          )}
-
-          {/* Hover Glitch Effect */}
-          <div className="absolute inset-0 opacity-0 hover:opacity-20 transition-opacity duration-300 bg-static-noise pointer-events-none"></div>
         </div>
 
         {/* Caption */}
