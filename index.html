@@ -1,17 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PROJECT: SYNTHBLOOD - Declassified Archive</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/project-synthblood/assets/index-AtWy3oJ6.js"></script>
-    <link rel="stylesheet" crossorigin href="/project-synthblood/assets/index-oTQ-JCga.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJECT: SYNTHBLOOD</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #d60000;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .image-container img {
+      max-width: 300px;
+      height: auto;
+      border: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PROJECT: SYNTHBLOOD</h1>
+    <p>Classified archives from a government research project gone wrong.</p>
+    
+    <div class="image-container">
+      <img src="./assets/hazmat-lab.png" alt="Hazmat Lab" />
+      <img src="./assets/idcard.png" alt="ID Card" />
+      <img src="./assets/patient6.png" alt="Patient 6" />
+      <img src="./assets/kspill.png" alt="K-Sequence Spill" />
+    </div>
+  </div>
+</body>
 </html>
