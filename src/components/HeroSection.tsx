@@ -44,7 +44,7 @@ const HeroSection: React.FC = () => {
       <div className="relative mb-8 max-w-4xl w-full">
         <div
           ref={imageRef}
-          className="relative w-full h-96 md:h-[500px] bg-gray-800 border-2 border-cream/30 overflow-hidden cursor-crosshair"
+          className="relative w-full h-96 md:h-[500px] border-2 border-cream/30 overflow-hidden cursor-crosshair"
           onMouseMove={handleMouseMove}
           onMouseEnter={() => setShowMagnifier(true)}
           onMouseLeave={() => setShowMagnifier(false)}
@@ -52,9 +52,23 @@ const HeroSection: React.FC = () => {
           {/* Actual hazmat-lab.png image */}
           <div className="w-full h-full">
             <img 
-              src="/assets/hazmat-lab.png" 
+              src="/assets/image.png" 
               alt="Laboratory with hazmat suits" 
               className="w-full h-full object-cover"
+              onError={(e) => {
+                // Fallback to placeholder if image fails to load
+                const target = e.target as HTMLImageElement;
+                target.style.display = 'none';
+                const placeholder = document.createElement('div');
+                placeholder.className = 'w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center';
+                placeholder.innerHTML = `
+                  <div class="text-center opacity-50">
+                    <div class="text-4xl mb-2">🧪</div>
+                    <div class="font-mono text-sm">hazmat-lab.png</div>
+                  </div>
+                `;
+                target.parentElement!.appendChild(placeholder);
+              }}
             />
           </div>
 
