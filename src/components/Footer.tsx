@@ -15,7 +15,8 @@ const Footer: React.FC = () => {
     '1111.jpg',
     '2222.jpg', 
     '33333.jpg',
-    '44444.jpg'
+    '44444.jpg',
+    '5555555.jpg'
   ];
 
   return (
@@ -42,36 +43,40 @@ const Footer: React.FC = () => {
             </span>
           </div>
 
-          {/* Recovered Footage Section */}
+          {/* Enhanced Filmstrip Gallery */}
           <div className="mb-8">
             <h3 className="text-sm font-mono text-neon-green mb-4 tracking-wider">
               RECOVERED FOOTAGE
             </h3>
-            <div className="relative overflow-hidden h-32 bg-black border border-cream/20">
+            <div className="relative overflow-hidden h-40 bg-black border border-cream/20">
+              {/* Gradient blur edges */}
+              <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-black via-black/80 to-transparent z-10 pointer-events-none"></div>
+              
               {/* Scanner Light Animation */}
-              <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute inset-0 pointer-events-none z-5">
                 <div className="w-32 h-full bg-gradient-to-r from-transparent via-neon-green/10 to-transparent animate-scanner-sweep"></div>
               </div>
               
-              {/* Film Strip Container */}
-              <div className="flex space-x-4 h-full animate-film-scroll">
-                {/* First set of images */}
-                {filmstripImages.map((image, index) => (
+              {/* Film Strip Container - Seamless Loop */}
+              <div className="flex space-x-2 h-full animate-film-scroll">
+                {/* Triple the images for seamless infinite scroll */}
+                {[...filmstripImages, ...filmstripImages, ...filmstripImages].map((image, index) => (
                   <div
-                    key={`set1-${index}`}
-                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
-                    style={{ animationDelay: `${index * 0.5}s` }}
+                    key={`film-${index}`}
+                    className="flex-shrink-0 w-28 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
+                    style={{ animationDelay: `${(index % 5) * 0.4}s` }}
                   >
                     <img 
                       src={`/assets/${image}`} 
-                      alt={`Recovered footage ${index + 1}`}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
+                      alt={`Recovered footage ${(index % 5) + 1}`}
+                      className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity duration-300 filter grayscale hover:grayscale-0"
                       onError={(e) => {
                         // Fallback if image fails to load
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
                         const placeholder = document.createElement('div');
-                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
+                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60 bg-gradient-to-b from-gray-700 to-gray-800';
                         placeholder.innerHTML = `
                           <div>
                             <div class="text-2xl mb-1">📽️</div>
@@ -81,67 +86,16 @@ const Footer: React.FC = () => {
                         target.parentElement!.appendChild(placeholder);
                       }}
                     />
-                  </div>
-                ))}
-                
-                {/* Duplicate set for seamless loop */}
-                {filmstripImages.map((image, index) => (
-                  <div
-                    key={`set2-${index}`}
-                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
-                    style={{ animationDelay: `${(index + 4) * 0.5}s` }}
-                  >
-                    <img 
-                      src={`/assets/${image}`} 
-                      alt={`Recovered footage ${index + 1}`}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-                      onError={(e) => {
-                        // Fallback if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
-                        placeholder.innerHTML = `
-                          <div>
-                            <div class="text-2xl mb-1">📽️</div>
-                            <div class="font-mono text-xs">${image}</div>
-                          </div>
-                        `;
-                        target.parentElement!.appendChild(placeholder);
-                      }}
-                    />
-                  </div>
-                ))}
-                
-                {/* Third set for continuous loop */}
-                {filmstripImages.map((image, index) => (
-                  <div
-                    key={`set3-${index}`}
-                    className="flex-shrink-0 w-24 h-full bg-black border border-cream/10 overflow-hidden cursor-crosshair group animate-film-flicker"
-                    style={{ animationDelay: `${(index + 8) * 0.5}s` }}
-                  >
-                    <img 
-                      src={`/assets/${image}`} 
-                      alt={`Recovered footage ${index + 1}`}
-                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-300"
-                      onError={(e) => {
-                        // Fallback if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const placeholder = document.createElement('div');
-                        placeholder.className = 'w-full h-full flex items-center justify-center text-center opacity-60';
-                        placeholder.innerHTML = `
-                          <div>
-                            <div class="text-2xl mb-1">📽️</div>
-                            <div class="font-mono text-xs">${image}</div>
-                          </div>
-                        `;
-                        target.parentElement!.appendChild(placeholder);
-                      }}
-                    />
+                    
+                    {/* Film perforations effect */}
+                    <div className="absolute inset-y-0 left-0 w-1 bg-black opacity-50"></div>
+                    <div className="absolute inset-y-0 right-0 w-1 bg-black opacity-50"></div>
                   </div>
                 ))}
               </div>
+              
+              {/* Film grain overlay */}
+              <div className="absolute inset-0 opacity-20 bg-static-noise pointer-events-none"></div>
             </div>
           </div>
         </div>

@@ -152,7 +152,7 @@
 }
 
 .animate-film-scroll {
-  animation: film-scroll 15s linear infinite;
+  animation: film-scroll 20s linear infinite;
 }
 
 .animate-film-flicker {
@@ -182,7 +182,7 @@
   border-color: var(--neon-green);
 }
 
-/* Mobile Optimizations - Reduced spacing */
+/* Mobile Optimizations - Aggressive spacing reduction */
 @media (max-width: 640px) {
   .text-shadow-glow {
     text-shadow: 0 0 5px rgba(57, 255, 20, 0.3), 0 0 10px rgba(57, 255, 20, 0.2);
@@ -198,18 +198,34 @@
     line-height: 1.4;
   }
   
-  /* Reduce hero section padding on mobile */
-  section {
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-  }
-  
-  /* Tighter spacing for mobile hero */
+  /* Minimal padding for mobile hero section */
   .min-h-screen {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  /* Remove excessive margins on mobile */
+  .mb-4 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.25rem;
+  }
+  
+  .py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Tighter spacing for mobile sections */
+  section {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
   }
 }
 
@@ -276,20 +292,20 @@ iframe {
   height: auto;
 }
 
-/* Mobile-specific spacing optimizations */
-@media (max-width: 768px) {
-  /* Reduce excessive padding on mobile */
-  .py-8 {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  
-  /* Tighter margins for mobile */
-  .mb-4 {
-    margin-bottom: 0.75rem;
-  }
-  
-  .mb-2 {
-    margin-bottom: 0.5rem;
-  }
+/* Film strip enhancements */
+.animate-film-scroll {
+  animation: film-scroll 25s linear infinite;
+}
+
+/* Grayscale filter utilities */
+.filter {
+  filter: grayscale(100%);
+}
+
+.grayscale-0 {
+  filter: grayscale(0%);
+}
+
+.hover\:grayscale-0:hover {
+  filter: grayscale(0%);
 }

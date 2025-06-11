@@ -18,7 +18,7 @@ export default {
         'marquee': 'marquee 30s linear infinite',
         'scroll-left': 'scroll-left 20s linear infinite',
         'flicker': 'flicker 3s ease-in-out infinite',
-        'film-scroll': 'film-scroll 15s linear infinite',
+        'film-scroll': 'film-scroll 25s linear infinite',
         'film-flicker': 'film-flicker 2s ease-in-out infinite',
         'scanner-sweep': 'scanner-sweep 8s ease-in-out infinite',
       },
