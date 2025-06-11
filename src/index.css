@@ -182,7 +182,7 @@
   border-color: var(--neon-green);
 }
 
-/* Mobile Optimizations */
+/* Mobile Optimizations - Reduced spacing */
 @media (max-width: 640px) {
   .text-shadow-glow {
     text-shadow: 0 0 5px rgba(57, 255, 20, 0.3), 0 0 10px rgba(57, 255, 20, 0.2);
@@ -196,6 +196,20 @@
   /* Optimize navigation for mobile */
   nav {
     line-height: 1.4;
+  }
+  
+  /* Reduce hero section padding on mobile */
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  /* Tighter spacing for mobile hero */
+  .min-h-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
 
@@ -262,10 +276,20 @@ iframe {
   height: auto;
 }
 
-/* Ensure proper spacing on all screen sizes */
+/* Mobile-specific spacing optimizations */
 @media (max-width: 768px) {
-  section {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  /* Reduce excessive padding on mobile */
+  .py-8 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  /* Tighter margins for mobile */
+  .mb-4 {
+    margin-bottom: 0.75rem;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem;
   }
 }

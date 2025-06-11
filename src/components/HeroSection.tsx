@@ -17,32 +17,19 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-12 md:py-20 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-8 md:py-20 relative">
       {/* CRT Flicker Background */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div className="crt-lines"></div>
       </div>
 
       {/* Title - Mobile Optimized */}
-      <div className="text-center mb-6 md:mb-8 animate-fade-in">
-        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-3 md:mb-4 tracking-wider text-shadow-glow leading-tight">
+      <div className="text-center mb-4 md:mb-8 animate-fade-in">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-2 md:mb-4 tracking-wider text-shadow-glow leading-tight">
           PROJECT: SYNTHBLOOD
         </h1>
         
-        {/* X Account Link */}
-        <div className="mb-4 md:mb-6">
-          <a 
-            href="https://x.com/synthbloodfiles" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 text-neon-green hover:text-cream transition-colors duration-300 font-mono text-sm md:text-base"
-          >
-            <span>@synthbloodfiles</span>
-            <ExternalLink size={16} />
-          </a>
-        </div>
-        
-        {/* Navigation - Mobile Optimized */}
+        {/* Navigation with X Account Link - Mobile Optimized */}
         <nav className="text-sm sm:text-base md:text-lg lg:text-xl font-mono tracking-widest opacity-80">
           <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4">
             <span className="hover:text-neon-green cursor-crosshair transition-colors duration-300">PROJECT FILES</span>
@@ -51,13 +38,22 @@ const HeroSection: React.FC = () => {
             <span className="hidden sm:inline">•</span>
             <span className="hover:text-neon-green cursor-crosshair transition-colors duration-300">REDLIGHT TIES</span>
             <span className="hidden sm:inline">•</span>
-            <span className="text-muted-red hover:text-red-400 cursor-crosshair transition-colors duration-300">[ X ]</span>
+            <a 
+              href="https://x.com/synthbloodfiles" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-1 text-muted-red hover:text-neon-green cursor-crosshair transition-colors duration-300"
+              title="Follow @synthbloodfiles on X"
+            >
+              <span>[ X ]</span>
+              <ExternalLink size={12} className="opacity-60" />
+            </a>
           </div>
         </nav>
       </div>
 
       {/* Video Embed with Magnifier */}
-      <div className="relative mb-6 md:mb-8 max-w-4xl w-full">
+      <div className="relative mb-4 md:mb-8 max-w-4xl w-full">
         <div
           ref={videoRef}
           className="relative w-full border-2 border-cream/30 overflow-hidden cursor-crosshair"
@@ -105,7 +101,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Caption */}
-        <div className="mt-3 md:mt-4 text-center">
+        <div className="mt-2 md:mt-4 text-center">
           <p className="font-mono text-xs md:text-sm opacity-80 tracking-wide">
             Recovered Footage, Site 9 – Montana, 1983
           </p>
