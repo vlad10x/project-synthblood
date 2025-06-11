@@ -7,5 +7,6 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/project-synthblood/',
+  // Remove the base path for Netlify deployment
+  // base: '/project-synthblood/',
 });
