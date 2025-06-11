@@ -30,18 +30,31 @@ const WhyThisMatters: React.FC = () => {
           <div className="order-2 lg:order-1">
             <div
               ref={imageRef}
-              className="relative w-full h-80 bg-gradient-to-br from-gray-800 to-gray-900 border-2 border-cream/30 overflow-hidden cursor-crosshair"
+              className="relative w-full h-80 border-2 border-cream/30 overflow-hidden cursor-crosshair"
               onMouseMove={handleMouseMove}
               onMouseEnter={() => setShowMagnifier(true)}
               onMouseLeave={() => setShowMagnifier(false)}
             >
-              {/* Placeholder for biohazard-vial.png */}
-              <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
-                <div className="text-center opacity-50">
-                  <div className="text-6xl mb-4">☢️</div>
-                  <div className="font-mono text-sm">biohazard-vial.png</div>
-                </div>
-              </div>
+              {/* Actual biohazard-vial.png image */}
+              <img 
+                src="/assets/biohazard-vial.png" 
+                alt="Biohazard vial specimen" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // Fallback to placeholder if image fails to load
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  const placeholder = document.createElement('div');
+                  placeholder.className = 'w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center';
+                  placeholder.innerHTML = `
+                    <div class="text-center opacity-50">
+                      <div class="text-6xl mb-4">☢️</div>
+                      <div class="font-mono text-sm">biohazard-vial.png</div>
+                    </div>
+                  `;
+                  target.parentElement!.appendChild(placeholder);
+                }}
+              />
 
               {/* Magnifier */}
               {showMagnifier && (
