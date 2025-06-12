@@ -182,7 +182,7 @@
   border-color: var(--neon-green);
 }
 
-/* AGGRESSIVE Mobile Optimizations - Remove ALL spacing */
+/* SMART Mobile Optimizations - Remove ONLY vertical spacing, keep horizontal padding */
 @media (max-width: 640px) {
   .text-shadow-glow {
     text-shadow: 0 0 5px rgba(57, 255, 20, 0.3), 0 0 10px rgba(57, 255, 20, 0.2);
@@ -198,7 +198,7 @@
     line-height: 1.4;
   }
   
-  /* ZERO padding for mobile hero section */
+  /* Remove ONLY vertical padding from hero section - keep horizontal padding */
   .min-h-screen {
     min-height: 100vh;
     display: flex;
@@ -206,9 +206,14 @@
     justify-content: center;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    /* Keep px-4 for horizontal padding */
   }
   
-  /* Remove ALL margins on mobile */
+  /* Remove vertical margins only */
+  .mb-8 {
+    margin-bottom: 0.25rem !important;
+  }
+  
   .mb-4 {
     margin-bottom: 0.25rem !important;
   }
@@ -217,35 +222,32 @@
     margin-bottom: 0.25rem !important;
   }
   
-  .mb-8 {
-    margin-bottom: 0.5rem !important;
+  .mb-1 {
+    margin-bottom: 0.25rem !important;
   }
   
+  .mt-4 {
+    margin-top: 0.25rem !important;
+  }
+  
+  .mt-2 {
+    margin-top: 0.25rem !important;
+  }
+  
+  .mt-1 {
+    margin-top: 0.25rem !important;
+  }
+  
+  /* Remove vertical padding from sections but keep horizontal */
   .py-20 {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-  
-  /* Force zero spacing for all sections on mobile */
-  section {
     padding-top: 0.5rem !important;
     padding-bottom: 0.5rem !important;
   }
   
-  /* Hero section specific mobile fixes */
-  .min-h-screen section {
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  /* Remove video container margins */
-  .relative.mb-1 {
-    margin-bottom: 0.25rem !important;
-  }
-  
-  /* Compact everything on mobile */
-  .text-center {
-    margin: 0 !important;
+  /* Hero section gets zero vertical spacing */
+  section.min-h-screen {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 }
 

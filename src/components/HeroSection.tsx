@@ -9,8 +9,8 @@ const HeroSection: React.FC = () => {
         <div className="crt-lines"></div>
       </div>
 
-      {/* Title - Mobile Optimized with NO spacing */}
-      <div className="text-center mb-2 md:mb-8 animate-fade-in">
+      {/* Title - Mobile Optimized with NO vertical spacing */}
+      <div className="text-center mb-1 md:mb-8 animate-fade-in">
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-1 md:mb-4 tracking-wider text-shadow-glow leading-tight">
           PROJECT: SYNTHBLOOD
         </h1>
@@ -38,7 +38,7 @@ const HeroSection: React.FC = () => {
         </nav>
       </div>
 
-      {/* Clean Video Embed - NO margin on mobile */}
+      {/* Clean Video Embed - NO vertical margin on mobile */}
       <div className="relative mb-1 md:mb-8 max-w-4xl w-full">
         <div className="relative w-full border-2 border-cream/30 overflow-hidden">
           {/* Video Embed - Clean without effects */}
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Caption - NO margin on mobile */}
+        {/* Caption - NO vertical margin on mobile */}
         <div className="mt-1 md:mt-4 text-center">
           <p className="font-mono text-xs md:text-sm opacity-80 tracking-wide">
             Recovered Footage, Site 9 – Montana, 1983
