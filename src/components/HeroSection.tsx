@@ -3,14 +3,14 @@ import { ExternalLink } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-4 md:py-20 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 py-0 md:py-20 relative">
       {/* CRT Flicker Background */}
       <div className="fixed inset-0 opacity-5 pointer-events-none">
         <div className="crt-lines"></div>
       </div>
 
-      {/* Title - Mobile Optimized with minimal spacing */}
-      <div className="text-center mb-3 md:mb-8 animate-fade-in">
+      {/* Title - Mobile Optimized with NO spacing */}
+      <div className="text-center mb-2 md:mb-8 animate-fade-in">
         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-1 md:mb-4 tracking-wider text-shadow-glow leading-tight">
           PROJECT: SYNTHBLOOD
         </h1>
@@ -38,8 +38,8 @@ const HeroSection: React.FC = () => {
         </nav>
       </div>
 
-      {/* Clean Video Embed - Reduced margin on mobile */}
-      <div className="relative mb-2 md:mb-8 max-w-4xl w-full">
+      {/* Clean Video Embed - NO margin on mobile */}
+      <div className="relative mb-1 md:mb-8 max-w-4xl w-full">
         <div className="relative w-full border-2 border-cream/30 overflow-hidden">
           {/* Video Embed - Clean without effects */}
           <div style={{ left: 0, width: '100%', height: 0, position: 'relative', paddingBottom: '56.25%' }}>
@@ -56,7 +56,7 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Caption - Reduced margin on mobile */}
+        {/* Caption - NO margin on mobile */}
         <div className="mt-1 md:mt-4 text-center">
           <p className="font-mono text-xs md:text-sm opacity-80 tracking-wide">
             Recovered Footage, Site 9 – Montana, 1983
